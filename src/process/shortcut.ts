@@ -1,17 +1,24 @@
 import { app, globalShortcut } from 'electron';
-import { trigger } from './triggered';
-export default function shortcut() {
+export default function shortcut(mainWindow: Electron.BrowserWindow) {
 
-    app.whenReady().then(() => {
+    app.whenReady().then(async () => {
 
         // Register a 'CommandOrControl+Q' shortcut listener.
-        const ret = globalShortcut.register('CommandOrControl+q', () => {
-            trigger(['ctrl', 'q'])
+        const register = globalShortcut.register('CommandOrControl+q', async () => {
+
+            // send start-microphone through ipc
+
+            try {
+                mainWindow.webContents.send('toggle-microphone')
+                console.log("The user pressed Ctrl+Q");
+            }
+            catch (error) {
+                console.log(error);
+            }
         })
 
-
-        if (!ret) {
-            console.log('registration failed')
+        if (!register) {
+            console.log('registration failed');
         }
 
         // Check whether a shortcut is registered.

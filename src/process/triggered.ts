@@ -1,15 +1,16 @@
-/* eslint-disable prefer-const */
-import { ListeningState } from "../types/listening-status";
-import useListeningStore from "../view/store";
+// depricated 
 
-// let isListening = useListeningStore((state: any) => { state.isListening })
+// export function trigger(keys_pressed: string[], mainWindow: Electron.BrowserWindow) {
 
-export function trigger(keys_pressed: string[]) {
+//     console.log("The user pressed Ctrl+Q");
 
-    const { isListening, toggleListening }: ListeningState = useListeningStore.getState()
+//     switch (keys_pressed[1]) {
 
+//         case 'Q':
+//             break;
 
-    console.log('The user pressed ' + keys_pressed.join('+'));
-    toggleListening()
-    console.log(isListening)
-}
+//         default:
+//             console.log("something went wrong with the shortcut")
+//             break;
+//     }
+// }
