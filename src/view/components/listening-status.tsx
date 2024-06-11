@@ -5,20 +5,17 @@ import React, { useEffect, useRef, useState } from "react"
 // make a component named Listening
 
 export default function Listening() {
-
+    
     const [isListening, setIsListening] = useState(false);
     const audioStreamRef = useRef<MediaStream | null>(null);
-    // add a button for microphone
-
-
     // useEffect(() => {
     //     // Listen for the 'toggle-microphone' event from the main process
-    //     console.log("toggle microphone");
     //     ipcRenderer.on('toggle-microphone', handleToggleMicrophone);
 
     //     return () => {
     //         ipcRenderer.removeListener('toggle-microphone', handleToggleMicrophone);
     //     };
+
     // }, [isListening]);
 
     const handleToggleMicrophone = () => {
@@ -77,6 +74,7 @@ export default function Listening() {
 
     return (
         <div>
+            <h1>{}</h1>
             <h1>React TypeScript Electron App</h1>
             <p>Press Ctrl + Q to toggle microphone listening</p>
             <p>{isListening ? 'Microphone is listening...' : 'Microphone is off'}</p>

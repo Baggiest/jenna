@@ -40,6 +40,8 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@google/generative-ai": "^0.12.0",
+    "dotenv": "^16.4.5",
     "electron-squirrel-startup": "^1.0.1",
     "howler": "^2.2.4",
     "react": "^18.3.1",

@@ -4,7 +4,6 @@ import Listening from "./components/listening-status";
 
 export default function App() {
 
-
     return (
         <>
             <Listening />

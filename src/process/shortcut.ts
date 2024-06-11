@@ -1,5 +1,5 @@
 import { app, globalShortcut } from 'electron';
-export default function shortcut(mainWindow: Electron.BrowserWindow) {
+export default function shortcut(mainWindow: any) {
 
     app.whenReady().then(async () => {
 
@@ -9,7 +9,8 @@ export default function shortcut(mainWindow: Electron.BrowserWindow) {
             // send start-microphone through ipc
 
             try {
-                mainWindow.webContents.send('toggle-microphone')
+                // mainWindow.api.send('toggle-microphone')
+                console.log(mainWindow.api)
                 console.log("The user pressed Ctrl+Q");
             }
             catch (error) {
