@@ -4,7 +4,7 @@ import 'dotenv/config'
 
 // Access your API key as an environment variable (see "Set up your API key" above)
 
-const genAI = new GoogleGenerativeAI("AIzaSyBg2ryLyrzfsSqjd3WHcNClWeRHiJ5jNoc");
+const genAI = new GoogleGenerativeAI("");
 
 // Converts local file information to a GoogleGenerativeAI.Part object.
 function fileToGenerativePart(path: string, mimeType: string) {
