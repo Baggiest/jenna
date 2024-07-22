@@ -2,10 +2,10 @@ import React from "react";
 import ImagePreview from "./components/image-preview";
 import NavBar from "./components/nav";
 import TextResponse from "./components/text-response";
-import AttachButton from "./components/attach-button";
-import MicrophoneButton from "./components/microphone-button";
+import AttachButton from "./components/buttons/attach-button";
+import MicrophoneButton from "./components/buttons/microphone-button";
 import TextInput from "./components/text-input";
-import SendButton from "./components/send-button";
+import SendButton from "./components/buttons/send-button";
 
 export default function App() {
 

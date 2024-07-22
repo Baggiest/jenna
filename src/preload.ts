@@ -1,2 +1,11 @@
-// See the Electron documentation for details on how to use preload scripts:
-// https://www.electronjs.org/docs/latest/tutorial/process-model#preload-scripts
+import { contextBridge, ipcRenderer } from 'electron';
+
+interface API {
+    func: (x: string | number) => void;
+}
+
+const API: API = {
+    func: (x: string | number) => ipcRenderer.send("example", x)
+};
+
+contextBridge.exposeInMainWorld("api", API);

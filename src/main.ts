@@ -2,6 +2,7 @@
 import { app, BrowserWindow, safeStorage } from 'electron';
 import path from 'path';
 import { test_store } from './utils/store.test';
+import registerShortcuts from './shortcuts';
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
@@ -12,14 +13,18 @@ const createWindow = () => {
 
   // Create the browser window.
   const mainWindow = new BrowserWindow({
+
     width: 800,
     height: 600,
     resizable: false,
+    autoHideMenuBar: true,
+    show: false,
+
     webPreferences: {
+      nodeIntegration: false,
       preload: path.join(__dirname, 'preload.js'),
     },
-    autoHideMenuBar: true,
-    show: false
+
   });
 
   mainWindow.on("ready-to-show", mainWindow.show)
@@ -31,8 +36,10 @@ const createWindow = () => {
     mainWindow.loadFile(path.join(__dirname, `../renderer/${MAIN_WINDOW_VITE_NAME}/index.html`));
   }
 
+  registerShortcuts(mainWindow);
+
   // just testing the storing system.
-  test_store();
+  // test_store();
 
 
   // Open the DevTools.
